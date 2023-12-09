@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors'); // Importa el middleware cors
+const app = express();
+const port =  3000;
+const connectionMongo = require('./database/connectionMongo');
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors({
+    origin: '*',
+}));
 
-export default App;
+// Configura las rutas de la API
+const apiRoutes = require('./routes/api');
+app.use('/api', apiRoutes);
+
+app.listen(port, () => {
+    console.log(`Servidor en ejecución en http://localhost:${port}`);
+});
+
+
