@@ -1,0 +1,19 @@
+.crearreceta{
+    background-color: aliceblue;
+    margin : 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #1f1c1ce5;
+    padding: 10px;
+
+    width: 80%;
+    height: 100%;
+
+
+}
+
+.card-crearreceta{
+    align-items: center;
+    margin-top: 10%;
+    margin-left: 15%;
+}

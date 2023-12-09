@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
-const medicamentoSchema = mongoose.Schema({
+const medicamentoSchema = new mongoose.Schema({
     nombre: String,
     cantidad: Number,
     tipo: String,
     fechaVencimiento: String,
 });
 
-const tratamientoSchema = mongoose.Schema({
+const tratamientoSchema = new mongoose.Schema({
     diagnostico: String,
     descripcion: String,
     fechaInicio: String,
@@ -16,7 +16,7 @@ const tratamientoSchema = mongoose.Schema({
     observaciones: String,
 });
 
-const voluntarioSchema = mongoose.Schema({
+const voluntarioSchema = new mongoose.Schema({
     nombre: String,
     rut: String,
     direccion: String,
@@ -27,9 +27,9 @@ const voluntarioSchema = mongoose.Schema({
     observaciones: String,
 });
 
-const PerroSchema = mongoose.Schema({
+const PerroSchema = new mongoose.Schema({
     nombre: String,
-    
+    imagen: String,
     Datos: {
         fechaIngreso : String,
         fechaNacimiento : String,

@@ -1,0 +1,33 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 35px 1fr 100px;
+  min-height: 100vh;
+  grid-template-areas: "header header header"
+                        "sidebar content content"
+                        "footer footer footer";
+
+}
+.container header-login {
+
+  grid-area: header;
+  background-color: black;
+
+  
+  
+  
+}
+
+.container footer {
+  
+  grid-area: sidebar;
+  background-color: rgb(15, 22, 25)
+   
+  }
+ 
+ .container login {
+ 
+  grid-area: main;
+  background-color: rgb(15, 22, 25)
+   
+  }

@@ -1,0 +1,12 @@
+.RecetaInfo {
+    display: grid;
+  grid-template-rows:1fr 1fr 1fr;
+  grid-template-columns:repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  
+  );
+  padding: 30px;
+  grid-gap: 30px;
+  background-color: azure;
+}
