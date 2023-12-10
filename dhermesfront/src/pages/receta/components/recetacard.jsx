@@ -11,33 +11,29 @@ import ButtonBase from '@mui/material/ButtonBase';
 
 
 
-export default function RecipeReviewCard({receta}) {
+export default function RecipeReviewCard({perros}) {
 
 const handleCardClick = () => {
     // Aquí puedes manejar el evento de clic en la tarjeta
-    console.log(`/RecetaInfo/${receta._id}`);
+    console.log(`/RecetaInfo/${perros._id}`);
 };
 
   return (
-    <Link to={`/RecetaInfo/${receta._id}`}>
+    <Link to={`/RecetaInfo/${perros._id}`}>
     <ButtonBase onClick={handleCardClick}>
-    <Card sx={{marginLeft:10, width: 300, height: 500 , marginTop:5, marginBottom:2, marginRight:0}}>
+    <Card sx={{marginLeft:7, width: 300, height: 500 , marginTop:5, marginBottom:2, marginRight:0}}>
       <CardHeader
         
-        title={receta.titulo}
+        title={perros.nombre}
       />
       <CardMedia
         component="img"
         maxWidth="300"
-        height="300"
-        image={receta.imagen}
-        alt={receta.titulo}
+        height="500"
+        image={perros.imagen}
+        alt={perros.nombre}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {receta.descripcion}
-        </Typography>
-      </CardContent>
+      
       
     </Card>
     </ButtonBase>

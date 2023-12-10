@@ -6,16 +6,16 @@ import RecipeReviewCard from './components/recetacard';
 
 const serverUrl = 'http://localhost:3000';
 
-function Recetas() {
-  const [recetas, setRecetas] = useState([]);
+function Perros() {
+  const [perros, setPerros] = useState([]);
   
 
   useEffect(() => {
     // Realiza la solicitud GET a la API
-    axios.get(`${serverUrl}/api/recetas`)
+    axios.get(`${serverUrl}/api/perros`)
       .then((response) => {
         // Actualiza el estado con los datos de la respuesta
-        setRecetas(response.data);
+        setPerros(response.data);
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -28,11 +28,11 @@ function Recetas() {
       
       <div className='receta-container'>
       
-      {recetas.map((receta) => (
+      {perros.map((perro) => (
         <RecipeReviewCard  className='receta-card'
 
-          key={receta.receta_id} 
-          receta={receta} 
+          key={perro.nombre} 
+          perros={perro} 
         />
       ))}
       </div>
@@ -40,4 +40,4 @@ function Recetas() {
   );
 }
 
-export default Recetas;
+export default Perros;

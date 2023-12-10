@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Header() {
-  const pages = ["inicio", "Agregar", "Perfil",, "Registro"];
+  const pages = ["Perros", "Agregar", "Perfil",, "Registro"];
 
   const settings = ["Profile", "Login", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -162,7 +162,7 @@ function Header() {
               textDecoration: "none",
             }}
           >
-            RecetApp
+            Refugio Dhermes
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

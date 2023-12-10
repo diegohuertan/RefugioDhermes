@@ -22,6 +22,7 @@ const voluntarioSchema = new mongoose.Schema({
     direccion: String,
     telefono: String,
     correo: String,
+    contraseña: String,
     fechaIngreso: String,
     fechaNacimiento: String,
     observaciones: String,

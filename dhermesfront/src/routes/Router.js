@@ -37,7 +37,7 @@ const Router = [
       { path: "/", exact: true, element: <HomePage /> },
       { path: "*", element: <Navigate to="/404" /> },
       { path: "404", element: <Error /> },
-      { path: "Recetas", element: <RecetasView /> },
+      { path: "Perros", element: <RecetasView /> },
       { path: "agregar", element: <PrivateRoute><CreateReceta /> </PrivateRoute>},
       { path: "Perfil", element: <PrivateRoute><UserProfile /></PrivateRoute> },
       { path: "RecetaInfo/:id", element: <RecetaIformacion /> },
