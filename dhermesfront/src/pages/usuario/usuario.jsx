@@ -37,7 +37,7 @@ function Usuario() {
       axios.post(`${serverUrl}/api/filterByUsuario`,{"usuario":Usuario})
         .then((response) => {
           // Actualiza el estado con los datos de la respuesta
-          setRecetas(response.data);
+          setUsuario(response.data);
           console.log(response.data);
         })
         .catch((error) => {
