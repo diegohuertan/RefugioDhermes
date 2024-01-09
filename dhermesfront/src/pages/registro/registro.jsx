@@ -42,14 +42,14 @@ function Registro() {
     console.log(credenciales);
     console.log(data);
     try {
-      const response = await axios.post(`${serverUrl}/api/validarCorreo`,data);
+      const response = await axios.post(`${serverUrl}/api/validarsesion`,data);
       console.log(response.data.message);
       if (response.data.message==='Correo previamente registrado'){
         setEmailInUse(true);
       }else{
         setEmailInUse(false);
         try{
-          const creacion = await axios.post(`${serverUrl}/api/crearUsuario`,credenciales);
+          const creacion = await axios.post(`${serverUrl}/api/agregarvoluntario`,credenciales);
           if(creacion.status===201){
             console.log("usuario creado exitosamente");
             setItsCreated(true);

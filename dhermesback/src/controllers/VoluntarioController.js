@@ -31,11 +31,27 @@ exports.validarUser = async (req, res) => {
             return res.status(401).json({ message: 'Credenciales inválidas' });
         }
 
-        const token = jwt.sign({ _id: usuario._id, correo: correo }, 'clavesita', { expiresIn: '1h' });
+        // Crear un nuevo objeto a partir del objeto usuario y eliminar la propiedad de la contraseña
+        const usuarioParaToken = usuario.toObject();
+        delete usuarioParaToken.contraseña;
+
+        const token = jwt.sign(usuarioParaToken, 'clavesita', { expiresIn: '1h' });
 
         res.status(200).json({ success: true, message: 'Inicio de sesión exitoso token creado', token: token });
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Error en el servidor');
     }
+};
+exports.ObtenerUsuarioPorjwt = (req, res) => {
+    const token = req.headers.authorization.split(" ")[1];
+
+    jwt.verify(token, 'clavesita', function(err, decoded) {
+        if (err) {
+            console.error(err.message);
+            return res.status(500).send('Error en el servidor');
+        } else {
+            res.status(200).json(decoded);
+        }
+    });
 };

@@ -54,6 +54,7 @@ useEffect(() => {
   .then((response) => {
     // Actualiza el estado con los datos de la respuesta
     setPerroInfo(response.data);
+    console.log("perroinfo")
     console.log(response.data);
   })
   .catch((error) => {
@@ -86,10 +87,10 @@ return (
               Fecha de nacimiento: {PerroInfo?.Datos?.fechaNacimiento}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Fecha de esterilización: {PerroInfo?.esterilizacion?.fecha}
+              Fecha de esterilización: {PerroInfo?.Datos?.esterilizacion?.fecha}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Lugar de esterilización: {PerroInfo?.esterilizacion?.lugar}
+              Lugar de esterilización: {PerroInfo?.Datos?.esterilizacion?.lugar}
             </Typography>
           </Paper>
         </Grid>
@@ -99,27 +100,50 @@ return (
               Adopción
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Fecha de adopción: {PerroInfo?.Adopcion?.fecha}
+              Fecha de adopción: {PerroInfo?.Datos?.Adopcion?.fecha}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Persona: {PerroInfo?.Persona?.nombre}
+              Persona: {PerroInfo?.Datos?.Adopcion?.Persona?.nombre}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Rut: {PerroInfo?.Persona?.rut}
+              Rut: {PerroInfo?.Datos?.Adopcion?.Persona?.rut}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Dirección: {PerroInfo?.Persona?.direccion}
+              Dirección: {PerroInfo?.Datos?.Adopcion?.Persona?.direccion}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Teléfono: {PerroInfo?.Persona?.telefono}
+              Teléfono: {PerroInfo?.Datos?.Adopcion?.Persona?.telefono}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Correo: {PerroInfo?.Persona?.correo}
+              Correo: {PerroInfo?.Datos?.Adopcion?.Persona?.correo}
             </Typography>
             <Typography variant="body1" gutterBottom>
-              Retorno: {PerroInfo?.Persona?.retorno}
+              Retorno: {PerroInfo?.Datos?.Adopcion?.Persona?.retorno}
             </Typography>
           </Paper>
+          <Paper sx={{padding:1, marginBottom:2, border: '1px solid black', marginTop:2}}>
+    <Typography variant="h6" gutterBottom style={{ borderBottom: '1px solid black' , padding:4}}>
+      Vacunas
+    </Typography>
+    <Typography variant="body1" gutterBottom>
+      Antirrábica: {PerroInfo?.Vacunas?.Antirabica}
+    </Typography>
+    <Typography variant="body1" gutterBottom>
+      Antiparasitario Externo: {PerroInfo?.Vacunas?.antiparasitarioExterno}
+    </Typography>
+    <Typography variant="body1" gutterBottom>
+      Antiparasitario Interno: {PerroInfo?.Vacunas?.antiparasitarioInterno}
+    </Typography>
+    <Typography variant="body1" gutterBottom>
+      Vacuna 1: {PerroInfo?.Vacunas?.vacuna1}
+    </Typography>
+    <Typography variant="body1" gutterBottom>
+      Vacuna 2: {PerroInfo?.Vacunas?.vacuna2}
+    </Typography>
+    <Typography variant="body1" gutterBottom>
+      Vacuna Anual: {PerroInfo?.Vacunas?.vacunaAnual}
+    </Typography>
+  </Paper>
           <Paper sx={{padding:1, marginBottom:2, border: '1px solid black'}}>
             <Typography variant="h6" gutterBottom style={{ borderBottom: '1px solid black' , padding:4}}>
               Tratamientos

@@ -27,6 +27,12 @@ const LoginUser = Loadable(lazy(() => import("../pages/login/login")));
 
 const Registro = Loadable(lazy(()=> import("../pages/registro/registro")));
 
+const CreateMedicamento = Loadable(lazy(()=> import("../pages/Medicamentos/crearmedicamento")));
+
+const ListMedicamento = Loadable(lazy(()=> import("../pages/Medicamentos/medicamentos")));
+
+const CreateTratamiento = Loadable(lazy(()=> import("../pages/Tratamientos/creartratamiento")));
+
 /* ****Routes***** */
 
 const Router = [
@@ -42,7 +48,10 @@ const Router = [
       { path: "Perfil", element: <PrivateRoute><UserProfile /></PrivateRoute> },
       { path: "RecetaInfo/:id", element: <RecetaIformacion /> },
       { path: "Login", element: <LoginUser /> },
-      { path: "Registro", element: <Registro /> }
+      { path: "Registro", element: <Registro /> },
+      { path: "Medicamentos", element: < ListMedicamento/> },
+      { path: "Medicamentos/crear", element: < CreateMedicamento/> },
+      { path: "Tratamientos", element: <CreateTratamiento /> },
       
     ],
   },

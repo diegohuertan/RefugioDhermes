@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function Header() {
-  const pages = ["Perros", "Agregar", "Perfil",, "Registro"];
+  const pages = ["Perros", "Agregar", "Medicamentos","Tratamientos","Perfil"];
 
   const settings = ["Profile", "Login", "Logout"];
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -214,6 +214,7 @@ function Header() {
                   <Typography textAlign="center">{setting}</Typography>
                 </MenuItem>
               ))}
+              
             </Menu>
           </Box>
         </Toolbar>

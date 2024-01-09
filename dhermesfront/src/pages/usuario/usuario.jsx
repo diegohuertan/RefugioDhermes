@@ -12,10 +12,6 @@ const serverUrl='http://localhost:3000';
 
 function Usuario() {
     const [userData, setUserData] = useState([]);
-    const [RecetaInfo, setRecetaInfo] = useState([]);
-    const [recetas, setRecetas] = useState([]);
-    const [comentario, setComentario] = useState('');
-    const [puntuacion, setPuntuacion] = useState('');
     const [open, setOpen] = useState(false);
     const [Usuario, setUsuario] = useState({ usuario_id: '', correo: '' });
   
@@ -69,17 +65,6 @@ function Usuario() {
         <p>Correo del Usuario: {Usuario.correo}</p>
       </div>
 
-          <div className='receta-container'>
-          <Typography variant="h3" gutterBottom sx={{marginLeft:70,marginTop:5}}>
-              Mis Recetas
-            </Typography>
-            {recetas.map((receta) => (
-              <RecipeReviewCard className='receta-card'
-
-                key={receta.receta_id}
-                receta={receta} />
-            ))}
-          </div>
           </>
         </PageContainer>
      );
