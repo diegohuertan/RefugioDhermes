@@ -1,0 +1,2 @@
+.recetas-container{grid-gap:30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));grid-template-rows:1fr 1fr 1fr;height:100vh;padding:30px;width:100%}.recetas,.recetas-container{background-color:azure}.mainApp{width:100%}
+/*# sourceMappingURL=8.93c0540e.chunk.css.map*/

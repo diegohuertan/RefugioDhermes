@@ -1,0 +1,2 @@
+.container{display:grid;grid-template-areas:"header header header" "sidebar content content" "footer footer footer";grid-template-columns:1fr 1fr 1fr;grid-template-rows:35px 1fr 100px;min-height:100vh}.container header-login{background-color:#000;grid-area:header}.container footer{background-color:#0f1619;grid-area:sidebar}.container login{background-color:#0f1619;grid-area:main}.mainApp{width:100%}
+/*# sourceMappingURL=384.5fc56746.chunk.css.map*/
