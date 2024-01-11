@@ -3,23 +3,13 @@ import axios from 'axios';
 import '../../styles/receta.css';
 import PageContainer from '../../components/container/PageContainer';
 import { useParams } from 'react-router-dom';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+
 import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Grid, TextField } from '@mui/material';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import Rating from '@mui/material/Rating';
-import { Navigate } from 'react-router-dom';
-import { Snackbar } from '@mui/material';
-import MuiAlert from '@mui/material/Alert';
+
 
 
 const serverUrl = 'http://localhost:3000';
@@ -69,6 +59,9 @@ useEffect(() => {
 return (
   <PageContainer title="Vista Recetas" description="aaaaaaaaaaaaaaaaa" >
     <div className='receta-container'>
+    <Button sx={{margin:1}} component={Link} to={`/perros`} variant="contained" color="primary">
+            Volver
+            </Button>
     <Grid container spacing={2}>  
       {PerroInfo && <>
         <Grid item xs={12} sm={6} md={6}>
@@ -148,7 +141,11 @@ return (
             <Typography variant="h6" gutterBottom style={{ borderBottom: '1px solid black' , padding:4}}>
               Tratamientos
             </Typography>
-            {/* Aquí puedes agregar la información de los tratamientos */}
+            <Link to={`/vertratamientos/${id}`} style={{ textDecoration: 'none' }}>
+              <Button variant="contained" color="primary">
+                Ver Tratamiento Asociado
+              </Button>
+            </Link>
           </Paper>
         </Grid>
       </>}

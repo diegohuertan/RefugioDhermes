@@ -51,7 +51,34 @@ exports.ObtenerUsuarioPorjwt = (req, res) => {
             console.error(err.message);
             return res.status(500).send('Error en el servidor');
         } else {
-            res.status(200).json(decoded);
+            Voluntario.findById(decoded.id, function(err, voluntario) {
+                if (err) {
+                    console.error(err.message);
+                    return res.status(500).send('Error en el servidor');
+                } else {
+                    res.status(200).json(voluntario);
+                }
+            });
         }
     });
 };
+exports.filterbycorreo = async (req, res) => {
+    const { correo } = req.body;
+    console.log(correo); // Agregar este log para verificar el ID recibido
+
+    try {
+        const voluntarioEncontrado = await Voluntario.findOne({correo:correo});
+        console.log('Voluntario encontrado:', voluntarioEncontrado); // Agregar este log para verificar el perro encontrado
+
+        if (!voluntarioEncontrado) {
+            return res.status(404).json({ msg: 'no encontrado' });
+        }
+        res.status(200).json(voluntarioEncontrado);
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind == 'ObjectId') {
+            return res.status(404).json({ msg: 'no encontrado' });
+        }
+        res.status(500).send('Error en el servidor');
+    }
+}

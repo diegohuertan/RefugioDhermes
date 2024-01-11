@@ -15,11 +15,11 @@ export default function RecipeReviewCard({perros}) {
 
 const handleCardClick = () => {
     // Aquí puedes manejar el evento de clic en la tarjeta
-    console.log(`/RecetaInfo/${perros._id}`);
+    console.log(`/Perros/${perros._id}`);
 };
 
   return (
-    <Link to={`/RecetaInfo/${perros._id}`}>
+    <Link to={`/Perros/${perros._id}`}>
     <ButtonBase onClick={handleCardClick}>
     <Card sx={{marginLeft:7, width: 300, height: 500 , marginTop:5, marginBottom:2, marginRight:0}}>
       <CardHeader

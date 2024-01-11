@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import axios from 'axios';
 import { Grid, Paper, Typography, TextField, Button, Box } from '@mui/material';
 import PageContainer from '../../components/container/PageContainer';
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+
+
+
+
 
 const serverUrl = 'http://localhost:3000';
 
@@ -26,6 +31,17 @@ function CrearPerro() {
     const [antiparasitarioInterno, setAntiparasitarioInterno] = useState('');
     const [antiparasitarioExterno, setAntiparasitarioExterno] = useState('');
     const [tratamientos, setTratamientos] = useState([]);
+    const [tratamientosList, setTratamientosList] = useState([]);
+
+    useEffect(() => {
+        axios.get(`${serverUrl}/api/tratamientos`)
+          .then((response) => {
+            setTratamientosList(response.data);
+          })
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+      }, []);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -126,7 +142,22 @@ function CrearPerro() {
                             <Typography variant="h6" gutterBottom component="div">
                                 Tratamientos
                             </Typography>
-                            {/* Agrega aquí más campos de entrada para los demás tratamientos del perro */}
+                            <FormControl fullWidth>
+                            <InputLabel id="tratamientos-label">Seleccione Tratamientos</InputLabel>
+                            <Select
+                                labelId="tratamientos-label"
+                                multiple
+                                value={tratamientos}
+                                onChange={(e) => setTratamientos(e.target.value)}
+                                renderValue={(selected) => selected.join(', ')}
+                            >
+                                {tratamientosList.map((tratamiento, index) => (
+                                    <MenuItem key={index} value={tratamiento._id}>
+                                        {tratamiento.diagnostico}
+                                    </MenuItem>
+                                ))}
+                            </Select>
+                        </FormControl>
                         </Paper>
                     </Grid>
                     <Paper sx={{ marginTop: 2 }}>

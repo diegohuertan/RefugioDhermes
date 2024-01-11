@@ -33,6 +33,8 @@ const ListMedicamento = Loadable(lazy(()=> import("../pages/Medicamentos/medicam
 
 const CreateTratamiento = Loadable(lazy(()=> import("../pages/Tratamientos/creartratamiento")));
 
+const VerTratamiento = Loadable(lazy(()=> import("../pages/Tratamientos/tratamientos")));
+
 /* ****Routes***** */
 
 const Router = [
@@ -46,12 +48,13 @@ const Router = [
       { path: "Perros", element: <RecetasView /> },
       { path: "agregar", element: <PrivateRoute><CreateReceta /> </PrivateRoute>},
       { path: "Perfil", element: <PrivateRoute><UserProfile /></PrivateRoute> },
-      { path: "RecetaInfo/:id", element: <RecetaIformacion /> },
+      { path: "Perros/:id", element: <RecetaIformacion /> },
       { path: "Login", element: <LoginUser /> },
       { path: "Registro", element: <Registro /> },
       { path: "Medicamentos", element: < ListMedicamento/> },
       { path: "Medicamentos/crear", element: < CreateMedicamento/> },
       { path: "Tratamientos", element: <CreateTratamiento /> },
+      { path: "vertratamientos/:id", element: <VerTratamiento /> },
       
     ],
   },

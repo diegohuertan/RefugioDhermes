@@ -1,73 +1,78 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import '../../styles/usuario.css';
-import PageContainer from '../../components/container/PageContainer';
-import RecipeReviewCard from '../receta/components/recetacard';
-import { Paper, Typography } from '@mui/material';
+import { Paper } from '@mui/material';
 
-//import Button from 'react-bootstrap/Button';
-//import Modal from 'react-bootstrap/Modal';
-
-const serverUrl='http://localhost:3000';
+const serverUrl = 'http://localhost:3000';
 
 function Usuario() {
-    const [userData, setUserData] = useState([]);
-    const [open, setOpen] = useState(false);
-    const [Usuario, setUsuario] = useState({ usuario_id: '', correo: '' });
-  
-    useEffect(() => {
-      const token = sessionStorage.getItem('token');
-  
-      axios.post(`${serverUrl}/api/obtenerUsuario`, { token })
-        .then((response) => {    
-          const { usuario_id, correo } = response.data;
-          
-          setUsuario({ usuario_id, correo });
-          console.log(Usuario);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    }, []);
-    
-    useEffect(() => {
-      // Realiza la solicitud GET a la API
-      
-      
-      axios.post(`${serverUrl}/api/filterByUsuario`,{"usuario":Usuario})
-        .then((response) => {
-          // Actualiza el estado con los datos de la respuesta
-          setUsuario(response.data);
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    }, []);
+  const [searchEmail, setSearchEmail] = useState('');
+  const [Voluntario, setVoluntario] = useState({
+    nombre: '',
+    rut: '',
+    direccion: '',
+    telefono: '',
+    correo: '',
+    contraseña: '',
+    fechaIngreso: '',
+    fechaNacimiento: '',
+    observaciones: '',
+    __v: 0
+  });
 
+  const handleSearch = () => {
+    axios.post(`${serverUrl}/api/filtrarcorreo`, { "correo": searchEmail })
+      .then((response) => {
+        setVoluntario(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  };
 
+  const searchStyle = {
+    margin: '20px 0',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  };
 
-    const recuadroStyle = {
-      border: '1px solid #ccc',
-      padding: '10px',
-      borderRadius: '5px',
-      boxShadow: '0 0 5px rgba(0, 0, 0, 0.1)',
-      maxWidth: '300px', // Puedes ajustar el ancho según tus necesidades
-      margin: 'auto',
-      marginTop: '20px',}
+  const inputStyle = {
+    marginRight: '10px',
+    padding: '5px'
+  };
 
+  const detailsStyle = {
+    padding: '20px',
+    borderRadius: '5px'
+  };
 
-    return (
-      <PageContainer title="Vista Recetas" description="aaaaaaaaaaaaaaaaa">
-      <><div style={recuadroStyle}>
-        <h2>Detalles del Usuario</h2>
-        <p>Usuario id: {Usuario.usuario_id}</p>
-        <p>Correo del Usuario: {Usuario.correo}</p>
+  return (
+    <div>
+      <div style={searchStyle}>
+        <input
+          style={inputStyle}
+          type="text"
+          value={searchEmail}
+          onChange={(e) => setSearchEmail(e.target.value)}
+          placeholder="Buscar por correo"
+        />
+        <button onClick={handleSearch}>Buscar</button>
       </div>
 
-          </>
-        </PageContainer>
-     );
-  }
-  
-  export default Usuario;
+      <div style={detailsStyle}>
+        <h2>Detalles del Voluntario</h2>
+        <p>Nombre: {Voluntario.nombre}</p>
+        <p>RUT: {Voluntario.rut}</p>
+        <p>Dirección: {Voluntario.direccion}</p>
+        <p>Teléfono: {Voluntario.telefono}</p>
+        <p>Correo: {Voluntario.correo}</p>
+        <p>Fecha de Ingreso: {Voluntario.fechaIngreso}</p>
+        <p>Fecha de Nacimiento: {Voluntario.fechaNacimiento}</p>
+        <p>Observaciones: {Voluntario.observaciones}</p>
+      </div>
+    </div>
+  );
+}
+
+export default Usuario;
