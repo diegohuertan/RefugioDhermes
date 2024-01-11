@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { Grid, TextField } from '@mui/material';
+import { Grid } from '@mui/material';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -17,26 +17,11 @@ const serverUrl = 'http://localhost:3000';
 function PerroInfo() {
   const [PerroInfo, setPerroInfo] = useState([]);
   const { id } = useParams();
-  const [open, setOpen] = useState(false);
   
   
 
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
-  };
 
-const handleSubmit = (event) => {
-  event.preventDefault();
-  const token = sessionStorage.getItem('token');
-  if (!token) {
-    setOpen(true);
-  }
-
-  }
 
 useEffect(() => {
   const body = {id: id}

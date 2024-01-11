@@ -41,6 +41,7 @@ function Login() {
         // Si la solicitud es exitosa y las credenciales son válidas, establece el estado de inicio de sesión en verdadero
         if (response.data.success) {
           setIsLoggedIn(true);
+          console.log(isLoggedIn);
 
           console.log('Inicio de sesión exitoso');
           // Almacena el token web en el almacenamiento local del navegador

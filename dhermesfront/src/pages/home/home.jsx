@@ -1,6 +1,6 @@
 import React from "react";
 import PageContainer from "../../components/container/PageContainer";
-import { Box, Typography, Link, Button } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 
 function Home() {
   return (

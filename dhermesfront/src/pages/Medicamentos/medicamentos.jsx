@@ -13,9 +13,7 @@ import Paper from '@mui/material/Paper';
 
 const serverUrl = 'http://localhost:3000';
 
-function createData(nombre, cantidad, tipo, fechaVencimiento) {
-    return { nombre, cantidad, tipo, fechaVencimiento };
-}
+
 
 export default function BasicTable() {
     const [Medicamentos, setMedicamentos] = useState([]);

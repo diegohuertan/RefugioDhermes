@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Paper } from '@mui/material';
 
 const serverUrl = 'http://localhost:3000';
 
