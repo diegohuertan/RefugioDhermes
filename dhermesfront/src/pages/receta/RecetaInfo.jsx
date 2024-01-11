@@ -35,7 +35,7 @@ useEffect(() => {
   .catch((error) => {
     console.error('Error:', error);
   });
-}, []);  
+}, [id]);  
 
 
 

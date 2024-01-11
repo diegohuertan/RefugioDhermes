@@ -24,8 +24,7 @@ function TratamientoInfo() {
         .catch((error) => {
             console.error('Error:', error);
         });
-    }, []);  
-
+    }, [id]);  
     return (
         <PageContainer title="Vista Recetas" description="aaaaaaaaaaaaaaaaa" >
             <div className='receta-container'>
